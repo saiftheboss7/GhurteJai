@@ -20,7 +20,7 @@ app.use('/login', login);
 app.use('/home', home);
 app.use('/logout', logout);
 
-app.use(express.static('assets'));
+app.use('/assets',express.static('assets'));
 
 
 //ROUTES
