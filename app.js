@@ -3,7 +3,7 @@ var express 		= require('express');
 var bodyParser 		= require('body-parser');
 var exSession 		= require('express-session');
 var cookieParser 	= require('cookie-parser');
-var login			= require('./controllers/login');
+var login			= require('./controllers/adminLogin');
 var home			= require('./controllers/home');
 var logout			= require('./controllers/logout');
 var app  			= express();
@@ -19,23 +19,17 @@ app.use(cookieParser());
 app.use('/login', login);
 app.use('/home', home);
 app.use('/logout', logout);
-app.use('/assets', express.static('ext'));
+
+app.use(express.static('assets'));
+
 
 //ROUTES
-app.get('/', (req,res)=>res.send('Index page'));
-app.get('/setCookie', (req,res)=>{
-	res.cookie('cookie1', 'first cookie');
-	res.send("done");
+
+app.get('/', function(req, res) {
+	res.render('index');
+
 });
 
-app.get('/viewCookie', (req,res)=>{
-	res.send(req.cookies['cookie1']);
-});
-
-app.get('/rmCookie', (req,res)=>{
-	res.clearCookie('cookie1');
-	res.send('Done');
-});
 
 
 //SERVER STARTUP
