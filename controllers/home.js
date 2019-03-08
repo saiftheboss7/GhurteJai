@@ -12,9 +12,10 @@ router.get('*', function(req, res, next){
 
 router.get('/', (req, res)=>{
 		var user = {
-			name: req.session.name
+			//name: req.session.name
+			name: 'Khalid'
 		};
-		res.render('home/index', user);
+		res.render('index', user);
 });	
 
 

@@ -16,5 +16,8 @@
     "express-session": "^1.15.6",
     "mysql": "^2.16.0",
     "nodemon": "^1.18.10"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
   }
 }

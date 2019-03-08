@@ -5,6 +5,7 @@ var exSession 		= require('express-session');
 var cookieParser 	= require('cookie-parser');
 var login			= require('./controllers/adminLogin');
 var home			= require('./controllers/home');
+var main			= require('./controllers/main');
 var logout			= require('./controllers/logout');
 var app  			= express();
 var port 			= 3000;
@@ -18,6 +19,8 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use('/login', login);
 app.use('/home', home);
+app.use('/', main);
+app.use('/home', home);
 app.use('/logout', logout);
 
 app.use('/assets',express.static('assets'));
@@ -25,10 +28,10 @@ app.use('/assets',express.static('assets'));
 
 //ROUTES
 
-app.get('/', function(req, res) {
-	res.render('index');
+// app.get('/', function(req, res) {
+// 	res.redirect('/home');
 
-});
+// });
 
 
 
