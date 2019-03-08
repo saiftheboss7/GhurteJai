@@ -4,6 +4,7 @@ var bodyParser 		= require('body-parser');
 var exSession 		= require('express-session');
 var cookieParser 	= require('cookie-parser');
 var login			= require('./controllers/adminLogin');
+var adminDashboard  = require('./controllers/adminDashboard')
 var home			= require('./controllers/home');
 var main			= require('./controllers/main');
 var logout			= require('./controllers/logout');
@@ -22,6 +23,7 @@ app.use('/home', home);
 app.use('/', main);
 app.use('/home', home);
 app.use('/logout', logout);
+app.use('/admindashboard', adminDashboard);
 
 app.use('/assets',express.static('assets'));
 

@@ -3,17 +3,17 @@ var userModel = require.main.require('./model/user-model');
 var router = express.Router();
 
 router.get('/', (req, res)=>{
-	res.render('login/index');
+	res.render('login/adminDashboard');
 });
 
-router.post('/', (req, res)=>{
+/*router.post('/', (req, res)=>{
 	
 	var user ={
 		uname : req.body.uname,
 		password : req.body.password
 	};
 	
-/* 	userModel.validate(user, function(result){
+ 	userModel.validate(user, function(result){
 		if(result.length > 0){
 			req.session.name = req.body.uname;
 			req.session.uid = result[0].id;
@@ -21,15 +21,7 @@ router.post('/', (req, res)=>{
 		}else{
 			res.render("login/index");
 		}
-	}); */
-
-	if(req.body.uname=='khalid' && req.body.pwd=="123456"){
-		req.session.name = req.body.uname;
-		res.redirect('/admindashboard');
-	}
-	else{
-		res.render("login/index");
-	}
-});
+	}); 
+});*/
 
 module.exports = router;
