@@ -14,16 +14,16 @@
 						<li class=""><a href="contact">Contact</a></li> 
 
 						<% if (name == null){ %>
-							<li id="id01"><a href="#" onclick="document.getElementById('id01').style.display='block'" style="width:auto;" >Login</a></li>
+							<li id="id01"><a href="/login" onclick="document.getElementById('id01').style.display='block'" style="width:auto;" >Login</a></li>
 						<% } else{ %>  
-							<li><a href="Admin/logout.php">Logout</a></li>
+							<li><a href="/logout">Logout</a></li>
 						<% } %>                        
 
 
 						<% if(name == null){ %>
 							<li class=""><a href="register.php">Register</a></li>
 						<% } else{ %>  
-							<li><a href="Admin">Admin</a></li>
+							<li><a href="/admindashboard">Admin</a></li>
 						<% } %>
 
 						<!-- <li class="has-dropdown">
