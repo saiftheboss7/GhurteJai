@@ -42,7 +42,7 @@ module.exports={
 	},
 	insert: function(user, callback){
 		var sql = "insert into hotels(title,location,image,hotel_desc,owner,addedBy) values (?, ?, ?, ?, ?, ?)";
-		db.execute(sql, [user.hotel_title, user.hotel_location, user.image, user.hotel_desc, user.hotel_owner, , user.addedBy], function(status){
+		db.execute(sql, [user.hotel_title, user.hotel_location, user.image, user.hotel_desc, user.hotel_owner, user.addedBy], function(status){
 			callback(status);
 		});
 	},
