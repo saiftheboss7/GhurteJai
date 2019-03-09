@@ -3,7 +3,7 @@ var db = require('./db');
 module.exports={
 
 	get: function(userId, callback){
-		var sql = "select * from user where id=?";
+		var sql = "select * from hotels where hotel_id=?";
 
 		db.getResult(sql, [userId], function(result){
 			callback(result);
@@ -23,6 +23,12 @@ module.exports={
 	},
 	getAll: function(callback){
 		var sql = "select * from users";
+		db.getResult(sql, [], function(results){
+			callback(results);
+		});
+	},
+	getHotelView: function(callback){
+		var sql = "select * from hotels where deletedAt is null order by hotel_id asc";
 		db.getResult(sql, [], function(results){
 			callback(results);
 		});
