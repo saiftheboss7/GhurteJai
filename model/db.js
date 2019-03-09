@@ -55,6 +55,7 @@ module.exports= {
 				connection.query(sql, function(err, status){		
 			
 					if(err){
+						console.log("db error",err);
 						callback(false);
 					}else{
 						callback(status);
@@ -64,6 +65,7 @@ module.exports= {
 				connection.query(sql, params, function(err, status){		
 			
 					if(err){
+						console.log("db error",err);
 						callback(false);
 					}else{
 						callback(status);
