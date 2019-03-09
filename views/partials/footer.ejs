@@ -1,77 +1,64 @@
-  <!-- Main Footer -->
-  <footer class="main-footer">
-    <!-- To the right -->
-    <div class="pull-right hidden-xs">
-      Anything you want
+<footer id="colorlib-footer" role="contentinfo">
+<div class="container">
+    <div class="row row-pb-md">
+        <div class="col-md-3 colorlib-widget">
+            <h4>Ghurte Jai</h4>
+            <p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit. Eos cumque dicta adipisci architecto culpa amet.</p>
+            <p>
+                <ul class="colorlib-social-icons">
+                    <li><a href="http://twitter.com/iam_kih"><i class="icon-twitter"></i></a></li>
+                    <li><a href="http://facebook.com/iamkih"><i class="icon-facebook"></i></a></li>
+                </ul>
+            </p>
+        </div>
+        <div class="col-md-2 colorlib-widget">
+            <h4>Book Now</h4>
+            <p>
+                <ul class="colorlib-footer-links">
+                    <li><a href="hotels">Hotels</a></li>
+                    <li><a href="about">About</a></li>
+                    <li><a href="contact">Contact</a></li>
+                </ul>
+            </p>
+        </div>
+        <div class="col-md-2 colorlib-widget">
+            <h4>Pinned Hotels</h4>
+            <p>
+                <ul class="colorlib-footer-links">
+                    <li><a href="hotel-room/hotel_id/2">Hotel Edison</a></li>
+                    <li><a href="hotel-room/hotel_id/3">Hotel Raddison</a></li>
+                    <li><a href="hotel-room/hotel_id/5">Hotel Agrabad</a></li>
+                    <li><a href="hotel-room/hotel_id/6">Le Meridien Dhaka</a></li>
+                </ul>
+            </p>
+        </div>
+        <div class="col-md-2">
+            <h4>Pinned Posts</h4>
+            <ul class="colorlib-footer-links">
+                <li><a href="post-view.php?post_id=4">The Ultimate Packing List For Female Travelers</a></li>
+                <li><a href="post-view.php?post_id=2">How These 5 People Found The Path to Their Dream Trip</a></li>
+                <li><a href="post-view.php?post_id=1">A Definitive Guide to the Best Dining and Drinking Venues in the City</a></li>
+            </ul>
+        </div>
+
+        <div class="col-md-3 col-md-push-1">
+            <h4>Contact Information</h4>
+            <ul class="colorlib-footer-links">
+                <li>944 Silicon Malancho, <br> Flat: 5A, Road: 14, Baitul Aman Housing Society, Adabor, Dhaka</li>
+                <li><a href="tel://8801820570771">+8801820570771</a></li>
+                <li><a href="mailto:khalid.hasan@ieee.org">khalid.hasan@ieee.org</a></li>
+                <li><a href="http://facebook.com/iamkih">Find Me On Facebook</a></li>
+            </ul>
+        </div>
     </div>
-    <!-- Default to the left -->
-    <strong>Copyright &copy; 2018 <a href="#">GhurteJai</a>.</strong> All rights reserved.
-  </footer>
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <p>
 
-  <!-- Add the sidebar's background. This div must be placed
-  immediately after the control sidebar -->
-  <div class="control-sidebar-bg"></div>
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Developed By <a href="https://facebook.com/iamkih" target="_blank">Khalid</a>, <a href="https://www.facebook.com/saiftheboss7" target="_blank">Saif</a> | Thanks To <a href="https://colorlib.com" target="_blank">Colorlib</a>
+
+            </p>
+        </div>
+    </div>
 </div>
-<!-- ./wrapper -->
-
-<!-- REQUIRED JS SCRIPTS -->
-
-<!-- jQuery 3 -->
-<script src="assets/Admin/bower_components/jquery/dist/jquery.min.js"></script>
-<!-- Bootstrap 3.3.7 -->
-<script src="assets/Admin/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<!-- AdminLTE App -->
-<script src="assets/Admin/dist/js/adminlte.min.js"></script>
-
-<!-- Optionally, you can add Slimscroll and FastClick plugins.
-     Both of these plugins are recommended to enhance the
-     user experience. -->
-
-<!--Enabling Froala Editor -->
-    <!-- Include external JS libs. -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/codemirror.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/mode/xml/xml.min.js"></script>
-
-<!-- Include Editor JS files. -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.4/js/froala_editor.pkgd.min.js"></script>
-
-<!-- <script> $(function() { $('#packageDesc').froalaEditor() }); </script> -->
-<script type="text/javascript">
-  $(".username-unavailable").css("display", "none");
-  $(document).ready(function() {
-  $('#username').keyup(function() {
-    var value = $(this).val();
-    
-    $.ajax({
-      type: 'post',
-      url: 'user_available_check.php',
-      data: {'username' : value},
-      success: function(r) {
-        $('.username-unavailable').html(r);
-        $(".username-unavailable").css("display", "");
-      }
-    });
-  });
-});
-</script>
-    <script type="text/javascript">
-    $(".email-unavailable").css("display", "none");
-    $(document).ready(function() {
-    $('#email').keyup(function() {
-    var value = $(this).val();
-    
-    $.ajax({
-      type: 'post',
-      url: 'email_available_check.php',
-      data: {'email' : value},
-      success: function(r) {
-        $('.email-unavailable').html(r);
-        $(".email-unavailable").css("display", "");
-       }
-      });
-      });
-      });
-    </script>
-</body>
-</html>
+</footer>

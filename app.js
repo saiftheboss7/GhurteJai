@@ -30,6 +30,7 @@ app.use('/admindashboard', adminDashboard);
 app.use('/addnewhotel', anh);
 app.use('/viewhotels', viewhotels);
 app.use('/assets',express.static('assets'));
+app.use('/hotel-room/assets',express.static('assets'));
 
 
 //ROUTES
