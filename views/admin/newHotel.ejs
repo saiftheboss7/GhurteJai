@@ -38,11 +38,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form" name="hotels-new" method="post" action="" enctype="multipart/form-data">
+            <form method="post">
               <div class="box-body">
-
-                <input type="text" name="myVariable">
-
                 <div class="form-group">
                   <label>Hotel Name</label>
                   <input type="text" class="form-control" id="hotel-title" placeholder="Hotel Name" name="hotel_title" required >
@@ -75,14 +72,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <div class="box-footer">
 
                <div class="error">
-                 <?php
-
-                   if (!empty($notifyMsg)) 
-                   {
-                    echo "<p><span id=\"error\">$notifyMsg</span></p>";
-                   }
-
-                 ?>
               </div>
                              
                 <button type="submit" class="btn btn-primary">ADD</button>
