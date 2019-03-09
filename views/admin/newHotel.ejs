@@ -72,6 +72,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <div class="box-footer">
 
                <div class="error">
+                <% if(message != null){ %>
+                <p><span id="error"><%= message %></span></p>
+                <% } %>
               </div>
                              
                 <button type="submit" class="btn btn-primary">ADD</button>
