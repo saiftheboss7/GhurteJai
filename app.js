@@ -3,13 +3,16 @@ var express 		= require('express');
 var bodyParser 		= require('body-parser');
 var exSession 		= require('express-session');
 var cookieParser 	= require('cookie-parser');
+var multer          = require('multer');
 var login			= require('./controllers/adminLogin');
 var adminDashboard  = require('./controllers/adminDashboard')
 var home			= require('./controllers/home');
 var main			= require('./controllers/main');
 var logout			= require('./controllers/logout');
+var anh             = require('./controllers/adminAddNewHotel');
 var app  			= express();
 var port 			= 3000;
+
 
 //CONFIGURATION
 app.set('view engine', 'ejs');
@@ -24,7 +27,7 @@ app.use('/', main);
 app.use('/home', home);
 app.use('/logout', logout);
 app.use('/admindashboard', adminDashboard);
-
+app.use('/addnewhotel', anh);
 app.use('/assets',express.static('assets'));
 
 

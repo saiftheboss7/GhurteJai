@@ -2,6 +2,7 @@ var express = require('express');
 var userModel = require.main.require('./model/adminModel');
 var router = express.Router();
 
+
 router.get('/', (req, res)=>{
 
 	if(req.session.name =='khalid'){
@@ -41,6 +42,7 @@ router.get('/', (req, res)=>{
 	}
 
 });
+
 
 
 module.exports = router;

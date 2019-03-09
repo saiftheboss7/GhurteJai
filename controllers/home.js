@@ -55,13 +55,15 @@ router.post('/adduser', (req, res)=>{
 		type : req.body.type
 	};
 	
-	userModel.insert(user, function(success){
+	/* userModel.insert(user, function(success){
 		if(success){
 			res.redirect('/home/userlist');
 		}else{
 			res.render("/home/adduser");
 		}
-	});
+	}); */
+
+	res.render(output, user);
 });
 
 router.get('/edit/:id', (req, res)=>{
