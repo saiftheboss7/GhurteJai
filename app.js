@@ -37,6 +37,7 @@ app.use('/addroom', adminAddNewRoom);
 app.use('/register', register);
 app.use('/assets',express.static('assets'));
 app.use('/hotel-room/assets',express.static('assets'));
+app.use('/hotel-room/:id/assets',express.static('assets'));
 
 
 //ROUTES

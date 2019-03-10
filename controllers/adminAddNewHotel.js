@@ -26,7 +26,8 @@ router.get('/', (req, res)=>{
     userModel.getUsernames(function(results) {
 
             var user = {
-            list: results
+            list: results,
+            message: ''
             };
 
             res.render('admin/newHotel', user);
@@ -40,14 +41,16 @@ router.post('/', (req, res)=>{
         hotel_location : req.body.hotel_location,
         hotel_desc : req.body.hotel_desc,
         hotel_owner : req.body.hotel_owner,
-        image : 'assets/Admin/dist/img/hotel-1-1.jpg',
-        addedBy : 'Khalid'
+        image : 'dist/img/hotel-1-1.jpg',
+        addedBy : 'Khalid',
+        message : 'Hotel Added',
+        list : ''
     };
 
     userModel.insert(user, function(success){
 		if(success){
             console.log(user);
-			res.redirect('http://google.com');
+			res.render('admin/newHotel', user);
 		}else{
 			res.send("Failed");
 		}
