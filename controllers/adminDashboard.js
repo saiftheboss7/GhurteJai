@@ -43,6 +43,33 @@ router.get('/', (req, res)=>{
 
 });
 
+router.post('/', (req, res)=>{
+
+	if(req.body.uname=='khalid' && req.body.pwd=="123456"){
+		req.session.name = req.body.uname; //CreateSessionVariable
+			 res.redirect('/admindashboard');
+   }
+   else {
+	   var user = {
+		   uname : req.body.uname,
+		   password : req.body.pwd
+	   };
+
+	   userModel.validate(user, function(result){
+		   if(result.length > 0){
+			   req.session.name = req.body.uname;
+			   req.session.uid = result[0].id;
+			   res.redirect('/');
+		   }else{
+			   res.send("User Login Unsuccessful <a href='/login'>Go Back</a>");
+		   }
+	   });
+
+   }
+
+});
+
+
 
 
 module.exports = router;

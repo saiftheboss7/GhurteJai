@@ -3,46 +3,34 @@ var db = require('./db');
 module.exports={
 
 	get: function(userId, callback){
-		var sql = "select * from user where id=?";
+		var sql = "select * from hotels where hotel_id=?";
 
 		db.getResult(sql, [userId], function(result){
 			callback(result);
 		});
 	},
-	getHotels: function(callback){
-		var sql = "SELECT COUNT(*) as count FROM hotels WHERE deletedAt is NULL";
+	getRooms: function(callback){
+		var sql = "select * from room_type where deletedAt is null order by room_type_id asc";
 		db.getResult(sql, [], function(results){
 			callback(results);
 		});
 	},
-	getTours: function(callback){
-		var sql = "SELECT COUNT(*) as count FROM tours WHERE deletedAt is NULL";
+	getHotelOwner: function(callback){
+		var sql = "select hotel_id, title from hotels where deletedAt is null order by hotel_id asc";
 		db.getResult(sql, [], function(results){
 			callback(results);
 		});
 	},
-	getUsers: function(callback){
-		var sql = "SELECT COUNT(*) as count FROM users WHERE deletedAt is NULL";
-		db.getResult(sql, [], function(results){
-			callback(results);
-		});
-	},
+
 	getAll: function(callback){
 		var sql = "select * from users";
 		db.getResult(sql, [], function(results){
 			callback(results);
 		});
 	},
-	validate: function(user, callback){
-		var sql = "select * from users where username=? and password=?";
-
-		db.getResult(sql, [user.uname, user.password], function(result){
-			callback(result);
-		});
-	},
-	insert: function(user, callback){
-		var sql = "insert into user values (null, ?,?,?)";
-		db.execute(sql, [user.uname, user.password, user.type], function(status){
+	insertRooms: function(user, callback){
+		var sql = "insert into room_type(hotel_id,room_name,room_desc, price,capacity,available,image) values (?,?,?,?,?,?,?)";
+		db.execute(sql, [user.hotel_id, user.room_type, user.room_desc, user.room_price, user.room_capacity, user.room_capacity, user.image], function(status){
 			callback(status);
 		});
 	},

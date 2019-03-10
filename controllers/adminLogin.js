@@ -20,7 +20,21 @@ router.get('/', (req, res)=>{
 			  res.redirect('/admindashboard');
 	}
 	else{
-		res.render("login/index");
+
+		var user = {
+			uname : req.body.uname,
+			password : req.body.pwd
+		};
+
+		userModel.validate(user, function(result){
+			if(result.length > 0){
+				req.session.name = req.body.uname;
+				res.redirect('/');
+			}else{
+				res.send("User Login Unsuccessful <a href='/login'>Go Back</a>");
+			}
+		});
+
 	}
 });
 
