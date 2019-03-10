@@ -1892,3 +1892,8 @@ input[type="text"] {
 
 .js .animate-box {
   opacity: 0; }
+  
+ input#form-data {
+    margin-left: 15px;
+    padding: 10px;
+}

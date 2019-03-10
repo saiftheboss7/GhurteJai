@@ -94,7 +94,7 @@
 							<div class="col-md-12">
                                 <div class="wrap-division">
 									<div class="col-md-12 col-md-offset-0 heading2 animate-box">
-										<h2><%= hotelTitle.title %></h2>
+										<h2><%= hotelData.title %></h2>
 									</div>
                                     <div class="row">
                                     <% for(var i=0; i < hotelRoomType.length; i++){ %>
@@ -109,7 +109,7 @@
                                                             <h2><%= hotelRoomType[i].room_name %></h2>
                                                             <p class="price"><span><%= hotelRoomType[i].price %></span> <small>/ night</small></p>
                                                             <p><%= hotelRoomType[i].room_desc %></p>
-                                                            <p><a href="#" class="btn btn-primary">Book Now!</a></p>
+                                                            <p><a href="<%= hotelData.hotel_id %>/<%= hotelRoomType[i].room_type_id %>" class="btn btn-primary">Book Now!</a></p>
                                                         </div>
                                                     </div>
                                                 </div>
