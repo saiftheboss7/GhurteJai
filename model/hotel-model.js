@@ -3,7 +3,7 @@ var db = require('./db');
 module.exports={
 
     getHotels: function(callback){
-		var sql = "select * from hotels where deletedAt is null order by hotel_id asc LIMIT 5";
+		var sql = "select * from hotels where deletedAt is null order by hotel_id asc ";
 		db.getResult(sql, [], function(results){
 			callback(results);
 		});
