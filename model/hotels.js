@@ -52,12 +52,28 @@ module.exports={
 			callback(status);
 		});
 	},
+
+	updateHotelInfo: function(user, callback){
+		var sql = "UPDATE hotels SET title= ? , location= ?, hotel_desc= ? where hotel_id= ?";
+		db.execute(sql, [user.result.hotel_title, user.result.hotel_location,user.result.hotel_desc, user.id], function(status){
+			callback(status);
+		});
+	},
+
 	update: function(user, callback){
 		var sql = "update user set username=?,password=?, type=? where id=?";
 		db.execute(sql, [user.uname, user.password,user.type, user.id], function(status){
 			callback(status);
 		});
 	},
+
+	deleteHotelInfo: function(hotel_id, callback){
+		var sql = "update hotels set deletedAt= CURRENT_TIMESTAMP where hotel_id= ?";
+		db.execute(sql, [hotel_id], function(status){
+			callback(status);
+		});
+	},
+
 	delete: function(userId, callback){
 		var sql = "delete from user where id=?";
 		db.execute(sql, [userId], function(status){

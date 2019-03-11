@@ -7,7 +7,7 @@ module.exports={
 		db.getResult(sql, [], function(results){
 			callback(results);
 		});
-    },
+		},
 
     getHotelTitleID: function(hotelID, callback){
 		var sql = "SELECT title, hotel_id from hotels where hotel_id=?";

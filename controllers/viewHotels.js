@@ -20,7 +20,11 @@ router.get('/', (req, res)=>{
 
 	userModel.get(req.params.id, function(result){
 		if(result.length >0 ){
-			res.render('home/edit', result[0]);
+			var allData= {
+				result : result[0],
+				message : ''
+			};
+			res.render('admin/edit-hotels', allData);
 		}else{
 			res.redirect('/');
 		}
@@ -28,44 +32,38 @@ router.get('/', (req, res)=>{
 });
 
 router.post('/edit/:hotel_id', (req, res)=>{
-	
+	var result = {
+		hotel_title : req.body.hotel_title,
+		hotel_location : req.body.hotel_location,
+		hotel_desc : req.body.hotel_desc
+	};
 	var user ={
 		id: req.params.hotel_id,
-		uname : req.body.uname,
-		password : req.body.password,
-		type : req.body.type
+		result : result,
+		message : 'Hotel Info Updated'
 	};
 	
-	userModel.update(user, function(success){
+	userModel.updateHotelInfo(user, function(success){
 		if(success){
-			res.redirect('/home/userlist');
+			res.render('admin/edit-hotels', user);
 		}else{
-			res.render("/home/edit/"+req.params.hotel_id);
+			res.redirect('/viewhotels');
 		}
 	});
 });
 
 router.get('/delete/:id', (req, res)=>{
 
-	userModel.get(req.params.id, function(result){
-		if(result.length >0 ){
-			res.render('home/delete', result[0]);
-		}else{
-			res.redirect('/home/userlist');
+	userModel.deleteHotelInfo(req.params.id, function(success){
+		if(success){
+			res.redirect('/viewhotels');
+		}
+		else{
+			res.redirect('/admindashboard');
 		}
 	});
 });	
 
-router.post('/delete/:id', (req, res)=>{
-	
-	userModel.delete(req.params.id, function(success){
-		if(success){
-			res.redirect('/home/userlist');
-		}else{
-			res.redirect("/home/delete/"+req.params.id);
-		}
-	});
-});
 
 
 

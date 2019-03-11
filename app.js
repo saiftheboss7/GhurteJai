@@ -46,6 +46,9 @@ app.use('/userdashboard/assets/',express.static('assets'));
 app.use('/admindashboard/assets/',express.static('assets'));
 app.use('/hotel-room/assets',express.static('assets'));
 app.use('/hotel-room/:id/assets',express.static('assets'));
+app.use('/viewhotels',express.static('assets'));
+app.use('/viewhotels/edit/:id',express.static('assets'));
+app.use('/viewroom/edit/:id',express.static('assets'));
 
 
 

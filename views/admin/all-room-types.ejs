@@ -62,7 +62,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <td width="35%"><%= List[i].room_desc %></td>";
                             <td><%= List[i].last_modified %></td>";
 
-                          <td><a href="/home/edit/<%= List[i].room_type_id %>">Edit</a> |<a href="/home/delete/<%= List[i].room_type_id %>">Delete</a></td>
+                          <td><a href="/viewroom/edit/<%= List[i].room_type_id %>">Edit</a> |<a href="/viewroom/delete/<%= List[i].room_type_id %>">Delete</a></td>
                             </tr>
                             <% } %>
               </table>
@@ -75,5 +75,3 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-
-  <% include ../partials/footer %>

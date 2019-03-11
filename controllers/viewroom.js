@@ -16,28 +16,54 @@ router.get('/', (req, res)=>{
 
 });
 
-router.post('/', (req, res)=>{
-    
-     /* var user = {
-        hotel_title : req.body.hotel_title,
-        hotel_location : req.body.hotel_location,
-        hotel_desc : req.body.hotel_desc,
-        hotel_owner : req.body.hotel_owner,
-        image : 'dist/img/hotel-1-1.jpg',
-        addedBy : 'Khalid'
-    };
+router.get('/edit/:id', (req, res)=>{
 
-    userModel.insert(user, function(success){
-		if(success){
-            console.log(user);
-			res.redirect('http://google.com');
+	userModel.get(req.params.id, function(result){
+		if(result.length >0 ){
+			var allData= {
+				result : result[0],
+				message : ''
+			};
+			res.render('admin/edit-rooms', allData);
 		}else{
-			res.send("Failed");
+			res.redirect('/');
 		}
-    }); */
-     
-
+	});
 });
+
+router.post('/edit/:room_type_id', (req, res)=>{
+	var result = {
+		price : req.body.room_price,
+		capacity : req.body.room_capacity,
+        available : req.body.room_available,
+        room_desc : req.body.room_desc
+	};
+	var user ={
+		id: req.params.room_type_id,
+		result : result,
+		message : 'Room Type Info Updated'
+	};
+	
+	userModel.updateRoomTypeInfo(user, function(success){
+		if(success){
+			res.render('admin/edit-rooms', user);
+		}else{
+			res.redirect('/viewroom');
+		}
+	});
+});
+
+router.get('/delete/:id', (req, res)=>{
+
+	userModel.deleteRoomTypeInfo(req.params.id, function(success){
+		if(success){
+			res.redirect('/viewroom');
+		}
+		else{
+			res.redirect('/admindashboard');
+		}
+	});
+});	
 
 
 
