@@ -22,6 +22,8 @@ function getDateTime() {
 
 }
 router.get('/', (req, res)=>{
+
+    if(req.session.name =='khalid'){
     
     userModel.getUsernames(function(results) {
 
@@ -31,7 +33,11 @@ router.get('/', (req, res)=>{
             };
 
             res.render('admin/newHotel', user);
-    });	
+    });
+    }
+    else{
+        res.redirect('/login');
+    }
 });
 
 router.post('/', (req, res)=>{

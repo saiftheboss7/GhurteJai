@@ -5,6 +5,8 @@ var router = express.Router();
 
 router.get('/', (req, res)=>{
 
+	
+	if(req.session.name =='khalid'){
 	userModel.getAllUsers(function(results) {
 
 		var user = {
@@ -13,6 +15,10 @@ router.get('/', (req, res)=>{
 
 		res.render('admin/all-users', user);
 		});
+	}
+	else{
+		res.redirect('/login');
+	}
 
 
 });

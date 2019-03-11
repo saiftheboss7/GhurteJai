@@ -53,6 +53,7 @@ router.post('/', (req, res)=>{
 
 
 router.get('/', (req, res)=>{
+    if(req.session.name =='khalid'){
     
     userModel.getHotelOwner(function(results) {
 
@@ -63,6 +64,10 @@ router.get('/', (req, res)=>{
 
             res.render('admin/add-new-room-type', user);
     });	
+    }
+    else{
+        res.redirect('/login');
+    }
 });
 
 
