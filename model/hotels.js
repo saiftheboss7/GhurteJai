@@ -33,6 +33,12 @@ module.exports={
 			callback(results);
 		});
 	},
+	getHotelEnquiry: function(callback){
+		var sql = "SELECT * from hotel_enquiry, hotels where hotel_enquiry.hotel_id= hotels.hotel_id and hotels.deletedAt is NULL and hotel_enquiry.deletedAt is NULL";
+		db.getResult(sql, [], function(results){
+			callback(results);
+		});
+	},
 	validate: function(user, callback){
 		var sql = "select * from user where username=? and password=?";
 

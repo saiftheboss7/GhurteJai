@@ -38,7 +38,7 @@ router.get('/', (req, res)=>{
 			  });	
 	}
 	else{
-		res.render("login/index");
+		res.redirect("/login");
 	}
 
 });
@@ -59,7 +59,7 @@ router.post('/', (req, res)=>{
 		   if(result.length > 0){
 			   req.session.name = req.body.uname;
 			   req.session.uid = result[0].id;
-			   res.redirect('/');
+			   res.redirect('/userdashboard');
 		   }else{
 			   res.send("User Login Unsuccessful <a href='/login'>Go Back</a>");
 		   }

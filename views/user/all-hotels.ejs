@@ -11,7 +11,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <title>All Hotels</title>
 
 <% include ../partials/header %>
-<% include ../partials/admin-sidebar %>
+<% include ../partials/user-sidebar %>
+
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -47,19 +48,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <th>Location</th>
                   <th>Description</th>
                   <th>Last Modified By</th>
-                  <th>Action</th>
                 </tr>
                     <% for(var i=0; i < List.length; i++){ %>
                       <tr>
                         <td><%= List[i].hotel_id %></td>
                         <td><%= List[i].title %></td>
                         <td><%= List[i].location %></td>
-                        <td><%= List[i].hotel_desc %></td>
+                        <td width="50%"><%= List[i].hotel_desc %></td>
                         <td><%= List[i].last_modified %></td>
-                        <td>
-                          <a href="/home/edit/<%= List[i].hotel_id %>">Edit</a> |
-                          <a href="/home/delete/<%= List[i].hotel_id %>">Delete</a> 
-                        </td>
                       </tr>
                       <% } %>
 

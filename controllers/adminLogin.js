@@ -5,6 +5,7 @@ var router = express.Router();
 
 
 router.get('/', (req, res)=>{
+
 	if(req.session.name=='khalid'){
 		res.redirect('/admindashboard');
 	}
@@ -29,7 +30,7 @@ router.get('/', (req, res)=>{
 		userModel.validate(user, function(result){
 			if(result.length > 0){
 				req.session.name = req.body.uname;
-				res.redirect('/');
+				res.redirect('/userdashboard');
 			}else{
 				res.send("User Login Unsuccessful <a href='/login'>Go Back</a>");
 			}

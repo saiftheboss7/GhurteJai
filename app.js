@@ -4,7 +4,8 @@ var bodyParser 		= require('body-parser');
 var exSession 		= require('express-session');
 var cookieParser 	= require('cookie-parser');
 var login			= require('./controllers/adminLogin');
-var adminDashboard  = require('./controllers/adminDashboard')
+var adminDashboard  = require('./controllers/adminDashboard');
+var userDashboard  = require('./controllers/userDashboard');
 var home			= require('./controllers/home');
 var main			= require('./controllers/main');
 var logout			= require('./controllers/logout');
@@ -12,6 +13,8 @@ var anh             = require('./controllers/adminAddNewHotel');
 var adminAddNewRoom = require('./controllers/adminAddNewRoom');
 var viewhotels      = require('./controllers/viewHotels');
 var viewroom        = require('./controllers/viewroom');
+var hotelEnquiry    = require('./controllers/hotelEnquiry');
+var adminAllUsers    = require('./controllers/adminAllUsers');
 var register        = require('./controllers/register');
 var app  			= express();
 var port 			= 3000;
@@ -30,14 +33,20 @@ app.use('/', main);
 app.use('/home', home);
 app.use('/logout', logout);
 app.use('/admindashboard', adminDashboard);
+app.use('/userdashboard', userDashboard);
 app.use('/addnewhotel', anh);
 app.use('/viewhotels', viewhotels);
 app.use('/viewroom', viewroom);
 app.use('/addroom', adminAddNewRoom);
 app.use('/register', register);
+app.use('/enquiry', hotelEnquiry);
+app.use('/allusers', adminAllUsers);
 app.use('/assets',express.static('assets'));
+app.use('/userdashboard/assets/',express.static('assets'));
+app.use('/admindashboard/assets/',express.static('assets'));
 app.use('/hotel-room/assets',express.static('assets'));
 app.use('/hotel-room/:id/assets',express.static('assets'));
+
 
 
 //ROUTES

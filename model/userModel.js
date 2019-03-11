@@ -7,6 +7,12 @@ module.exports={
 			callback(results);
 		});
 	},
+	getAllUsers: function(callback){
+		var sql = "select * from users where deletedAt is null order by username asc";
+		db.getResult(sql, [], function(results){
+			callback(results);
+		});
+	},
 	insertUser: function(user, callback){
 		var sql = "insert into users(username,name,password,email,phone,user_role,image) values (?, ?, ?, ?, ?, ?, ?)";
 		db.execute(sql, [user.username, user.name, user.password, user.email, user.phone, user.role, user.image], function(status){
